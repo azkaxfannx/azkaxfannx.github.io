@@ -29,19 +29,13 @@ function initengahan(){
   function bqhilang(){wallpaper.style="transform: scale(2);";bodyblur.style="opacity:.3";bq.style = "position:relative;transition:all .7s ease;";}
   function kethalo(){new TypeIt("#halo", {strings: ["" + vketikhalo], startDelay: 50, speed: 40, waitUntilVisible: true, afterComplete: function(){halo.innerHTML = vketikhalo;setTimeout(bqmuncul,200);},}).go();}
 
-  function tombol(){wallpaper.style="transform: scale(1);";Tombol.style="opacity:1;transform: scale(1);";if(fungsi==2){By.innerHTML="&#128140; Balas"}}
-  document.getElementById("By").onclick = function() {if(fungsi==1){Tombol.style="";fthilang();fungsi=0;pertanyaan();} if(fungsi==2){Tombol.style="";menuju();}}
-  
-  const waktuSekarang = new Date().getHours();let ucapan;
-  if(waktuSekarang < 10){ucapan = "Selamat Pagi, ";} 
-  else if(waktuSekarang < 16){ucapan = "Selamat Siang, ";}
-  else if(waktuSekarang < 19){ucapan = "Selamat Sore, ";}
-  else{ucapan = "Selamat Malam, ";}
+   function tombol(){wallpaper.style="transform: scale(1);";Tombol.style="opacity:1;transform: scale(1);";if(fungsi==2){By.innerHTML="&#128140; Balas"}}
+ document.getElementById("By").onclick = function() {if(fungsi==1){Tombol.style="";fthilang();fungsi=0;pertanyaan();} if(fungsi==2){Tombol.style="";menuju();}}
 
   vketik1=kalimat.innerHTML;kalimat.innerHTML = "";
   function mulaiketik1(){
   new TypeIt("#kalimat", {
-  strings: ["" + vketik1], startDelay: 400, speed: 20, cursor: false, deleteSpeed: 20, breakLines: false, waitUntilVisible: true, lifelike: true,
+  strings: ["" + vketik1], startDelay: 400, speed: 50, cursor: false, deleteSpeed: 30, breakLines: false, waitUntilVisible: true, lifelike: true,
   afterComplete: function(){
     aktiopsL();
   },}).go();
@@ -87,7 +81,7 @@ function initengahan(){
   },}).go();
   }
   function aktipesan4(){
-    wallpaper.style="transform: scale(1.5);";kalimat.innerHTML=pesan4.innerHTML + nama + " 🥳";kalimat.style="transform:scale(1.2)";setTimeout(aktipesan5,1000);
+    wallpaper.style="transform: scale(1.5);";kalimat.innerHTML=pesan4.innerHTML + nama + " 🎉";kalimat.style="transform:scale(1.2)";setTimeout(aktipesan5,1000);
   }
   vketik5=pesan5.innerHTML;pesan5.innerHTML="";
   function aktipesan5(){
@@ -96,7 +90,7 @@ function initengahan(){
   new TypeIt("#pesan5", {
   strings: ["" + vketik5], startDelay: 1, speed: 52, cursor: true, waitUntilVisible: true, lifelike: true,
   afterComplete: function(){
-    pesan5.innerHTML=vketik5 + " ><";setTimeout(aktipesan6,800);
+    pesan5.innerHTML=vketik5;setTimeout(aktipesan6,800);
   },}).go();
   }
   vketik6=pesan6.innerHTML;pesan6.innerHTML="";
@@ -105,7 +99,7 @@ function initengahan(){
   new TypeIt("#pesan6", {
   strings: ["" + vketik6], startDelay: 1, speed: 52, cursor: true, waitUntilVisible: true, lifelike: true,
   afterComplete: function(){
-    pesan6.innerHTML=vketik6;setTimeout(aktipesan7,800);
+    pesan6.innerHTML=vketik6 + ' <3';setTimeout(aktipesan7,800);
   },}).go();
   }
   vketik7=pesan7.innerHTML;pesan7.innerHTML="";
@@ -121,7 +115,7 @@ function initengahan(){
   //Pemisah
   vketik81=pesan8.innerHTML;pesan8.innerHTML="";
   vketik9=pesan9.innerHTML;pesan9.innerHTML="";
-  vketik10=pesan10.innerHTML;pesan10.innerHTML="";
+  vketik10=pesan10.innerHTML + ' <33';pesan10.innerHTML="";
   function aktipesan8(){
   pesan5.style="display:none";pesan6.style="display:none";pesan7.style="display:none";pesan8.style="";
   wallpaper.style="transform: scale(1);";
@@ -137,18 +131,17 @@ function initengahan(){
     fthilang();ftganti=5;setTimeout(ftmuncul,300);
     otoaktipesan=1;otomatis();setTimeout(toaktipesan,300);
     setInterval(berjatuhan,400);
-    fungsi=2;setTimeout(tombol,2000);
   }
-  var otoaktipesan=0;
-  function toaktipesan(){kalimat.innerHTML=vketik10;kalimat.style="transform:scale(1);font-size:24px;font-family:var(--gaya-font2)";}
+  let otoaktipesan=0;
+  function toaktipesan(){kalimat.innerHTML=vketik10;kalimat.style="transform:scale(1);font-size:24px;font-family:let(--gaya-font2)";}
 
   document.getElementById("lv1").onclick = function() {lv1.style="opacity:0";slov+=1;this.onclick=null;checkslov();}
   document.getElementById("lv2").onclick = function() {lv2.style="opacity:0";slov+=1;this.onclick=null;checkslov();}
   document.getElementById("lv3").onclick = function() {lv3.style="opacity:0";slov+=1;this.onclick=null;checkslov();}
   document.getElementById("lv4").onclick = function() {lv4.style="opacity:0";slov+=1;this.onclick=null;checkslov();}
-  var slov=0;function checkslov() {if(slov==4){kolombaru.style="position:relative;transform:scale(1)";otomatis();setTimeout(aktipesan2,400);}}
+  let slov=0;function checkslov() {if(slov==4){kolombaru.style="position:relative;transform:scale(1)";otomatis();setTimeout(aktipesan2,400);}}
   
-  async function pertanyaan(){var { isConfirmed: prtanya } = await swals.fire({title: nama + ' ' + tanya, text: '' + opstanya, imageUrl: '' + fotostiker6.src, showCancelButton: true, confirmButtonText: '' + tompositif, cancelButtonText: '' + tomnegatif,});
+  async function pertanyaan(){let { isConfirmed: prtanya } = await swals.fire({title: nama + ' ' + tanya, text: '' + opstanya, imageUrl: '' + fotostiker6.src, showCancelButton: true, confirmButtonText: '' + tompositif, cancelButtonText: '' + tomnegatif,});
     if(prtanya){
   await swalst.fire({title: '' + katatambahan.innerHTML, timer: 2000, imageUrl: '' + stikerditolak.src,});
       vketik8=vketik81;aktipesan8();
